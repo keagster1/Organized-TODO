@@ -2,8 +2,9 @@
 Organized-TODO is a python utility that allows users to manage a TODO list where all of the corresponding tasks are maintained in a master json file. The utility is being designed to be compatible with any app/service that can work with JSON data which means any developer can use this to quickly create their own custom TODO app.
 
 This utillity is a command line utliity with a wide range of functionality. While I am still in the early phases of development I already have core functionality working (see feature list below).
+--
 
-# Features
+## Features
   - Install Anywhere (Testing):
     This utility has been developed using relative paths which means this utility should work anywhere.
   - Advanced Search (In Development):
@@ -35,21 +36,37 @@ Tasks currently use the following information:
 - description (string)
 - status (string)
 
-The master json file (which you should never have to edit directly) is structured as an array with nested tasks.
+### General Format
+The corresponding JSON file should be formatted as follows:
+Schema:
+  - ID (number)
+  - name (string)
+  - created (datetime string)
+  - lastEdited (datetime string)
+  - categories (string array)
+  - description (string)
+  - status (string)
+
 Example:
 ```JSON
 [
     {
-        "id": <id>,
-        "name": "<name>",
+        "id": 0,
+        "name": "Example",
         "created": "<datetime>",
         "lastEdited": "<datetime>",
         "categories": [
-          "<category>"
+          "High Priority", "Phase 1"
         ],
-        "description": "<description>"
-        "status": "<status>"
+        "description": "This is an example task",
+        "status": "Created"
     },
     ...
 ]
 ```
+
+### Creating New Tasks
+In order to create a new task, simply enter a task that has the <strong>id</strong> "new". The command line utility will detect this and generate a new unique id. If you leave created and/or lastEdited blank, the utility will use the current datetime. 
+
+
+
