@@ -2,6 +2,7 @@
 Organized-TODO is a python utility that allows users to manage a TODO list where all of the corresponding tasks are maintained in a master json file. The utility is being designed to be compatible with any app/service that can work with JSON data which means any developer can use this to quickly create their own custom TODO app.
 
 This utillity is a command line utliity with a wide range of functionality. While I am still in the early phases of development I already have core functionality working (see feature list below).
+
 --
 
 ## Features
