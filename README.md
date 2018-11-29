@@ -22,4 +22,34 @@ This utillity is a command line utliity with a wide range of functionality. Whil
     Any JSON file that follows the proper format (see JSON format section below) that is placed in the merge folder will be merged into the 
     master json file. You can place any number of files in the merge directory. run the utility with -c to merge. Note: the merge directory
     gets deleted during the clean up process so don't put files here unless you are 100% ready to merge.
-  
+--
+
+## JSON Format
+
+Tasks currently use the following information:
+- id (number)
+- name (string)
+- created (datetime string)
+- lastEdited (datetime string)
+- categories (string array)
+- description (string)
+- status (string)
+
+The master json file (which you should never have to edit directly) is structured as an array with nested tasks.
+Example:
+```JSON
+[
+    {
+        "id": <id>,
+        "name": "<name>",
+        "created": "<datetime>",
+        "lastEdited": "<datetime>",
+        "categories": [
+          "<category>"
+        ],
+        "description": "<description>"
+        "status": "<status>"
+    },
+    ...
+]
+```
