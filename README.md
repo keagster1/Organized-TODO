@@ -60,9 +60,20 @@ Example:
         ],
         "description": "This is an example task",
         "status": "Created",
-        "delete": true
+        "delete": false
     },
-    ...
+    {
+        "id": 1,
+        "name": "Example2",
+        "created": "<datetime>",
+        "lastEdited": "<datetime>",
+        "categories": [
+          "High Priority", "Phase 2"
+        ],
+        "description": "This is another example task",
+        "status": "Created",
+        "delete": false
+    },
 ]
 ```
 
