@@ -275,8 +275,8 @@ def merge(f):
         for ctask in consolidate:
             if(ctask['id'] == 'new'):
                 ctask['id'] = generateID()
-                ctask['created'] = f'{datetime.datetime.now()}'
-                ctask['lastEdited'] = f'{datetime.datetime.now()}'
+                ctask['created'] = f'{datetime.datetime.now().isoformat()}'
+                ctask['lastEdited'] = f'{datetime.datetime.now().isoformat()}'
                 MASTER.append(ctask)
                 update_count += 1
             elif(ctask['id'] == task['id']): # found match, update values
@@ -287,9 +287,6 @@ def merge(f):
                     changed = 1
                 if ctask['created'] != task['created']:
                     task['created'] = ctask['created']                     
-                    changed = 1
-                if changed == 1:
-                    task['lastEdited'] = ctask['categories']
                 if ctask['categories'] != task['categories']:
                     task['categories'] = ctask['categories'] 
                     changed = 1
@@ -301,7 +298,9 @@ def merge(f):
                     changed = 1
                 if ctask['delete'] != task['delete']:
                     task['delete'] = ctask['delete']
-                break
+                    changed = 1
+                if changed == 1:
+                    task['lastEdited'] = f'"{datetime.datetime.now().isoformat()}"'
 
     with open('./.ignore/master_list.json', "w") as file:
         json.dump(MASTER, file, indent=4)

@@ -1,29 +1,20 @@
-Add rest of functionality:
-	Categories=['High Priority', 'new category', 'test']
-	#In Progress
-	Description:
-        Now that I have some core functionality working it is time to implement the rest of the commands.
-        Implement creating new tasks so thsildufpudrfgepurgweprogrgwepuorgwepiugwepri
-            if the id == new, then it will generate an id and insert the task.
-            @id(new) -> will create a new task
-
-	metadata: @id(0) @last_edited(2018-11-28T01:01:01) @task_created(2018-11-28T01:01:01) @delete(True)
-
 test2:
 	Categories=['Low Priority', 'test']
 	#Completed
 	Description:
 		This is a test task.
 		 More testing!!!
-what happens now? oh it seems to work actually! " n ""
+what happens now? oh it seems to work actually! " n ""wekl;fjgt asd asd asd asd
 
 	metadata: @id(1) @last_edited(2018-11-28T01:01:01) @task_created(2018-11-28T01:01:01) @delete(False)
 
-test2:
-	Categories=['TBD']
-	#Created
+test3:
+	Categories=['Low Priority', 'test']
+	#Completed
 	Description:
-		This is a new task
+			This is a test task.
+			 More testing!!!
+	what happens now? oh it seems to work actually! " n ""
 
-	metadata: @id(96748) @last_edited(2018-11-29 18:25:20.695377) @task_created(2018-11-29 18:25:20.695377) @delete(False)
+	metadata: @id(68101) @last_edited(2018-11-30T10:55:00.330160) @task_created(2018-11-30T10:55:00.330160) @delete(False)
 

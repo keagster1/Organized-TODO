@@ -1,32 +1,22 @@
 [
 	{
-		"id": 0,
-		"name": "Add rest of functionality",
-		"created": "2018-11-28T01:01:01",
-		"lastEdited": "2018-11-28T01:01:01",
-		"categories": ["High Priority", "new category", "test"],
-		"description": "        Now that I have some core functionality working it is time to implement the rest of the commands.\n        Implement creating new tasks so thsildufpudrfgepurgweprogrgwepuorgwepiugwepri\n            if the id == new, then it will generate an id and insert the task.\n            @id(new) -> will create a new task\n",
-		"status": "In Progress",
-		"delete": true
-	},
-	{
 		"id": 1,
 		"name": "test2",
 		"created": "2018-11-28T01:01:01",
 		"lastEdited": "2018-11-28T01:01:01",
 		"categories": ["Low Priority", "test"],
-		"description": "\t\tThis is a test task.\n\t\t More testing!!!\nwhat happens now? oh it seems to work actually! \" n \"\"\n",
+		"description": "\t\tThis is a test task.\n\t\t More testing!!!\nwhat happens now? oh it seems to work actually! \" n \"\"wekl;fjgt asd asd asd asd\n",
 		"status": "Completed",
 		"delete": false
 	},
 	{
-		"id": 96748,
-		"name": "test2",
-		"created": "2018-11-29 18:25:20.695377",
-		"lastEdited": "2018-11-29 18:25:20.695377",
-		"categories": ["TBD"],
-		"description": "\t\tThis is a new task\n",
-		"status": "Created",
+		"id": 68101,
+		"name": "test3",
+		"created": "2018-11-30T10:55:00.330160",
+		"lastEdited": "2018-11-30T10:55:00.330160",
+		"categories": ["Low Priority", "test"],
+		"description": "\t\t\tThis is a test task.\n\t\t\t More testing!!!\n\twhat happens now? oh it seems to work actually! \" n \"\"\n",
+		"status": "Completed",
 		"delete": false
 	}
 ]
