@@ -134,13 +134,13 @@ Admin Commands
 Search Commands
 ---
 ### -aa "string"
-> "All AND"
+> All AND
 >  - Search all tasks in every field (except id) for the passed value(s). The string can be comma delimited to search for 
 >  multiple values. All supplied values must be found in order to be returned. 
 >  - Example:
 >    -s -aa "some, string"
 ### -ao "string"
-> "All OR"
+> All OR
 >  - Search all tasks in every field (except id) for any of the passed value(s). The string can be comma delimited to search 
 >    for multiple values. Only one of the supplied values must be found in order to be returned. 
 >  - Example:
