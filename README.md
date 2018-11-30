@@ -8,7 +8,7 @@ This utillity is a command line utliity with a wide range of functionality. Whil
   - Merge Multiple JSON Files (Done):
   
     Any JSON file that follows the proper format (see JSON format section below) that is placed in the merge folder will be merged into the 
-    master json file. You can place any number of files in the merge directory. Run the utility with -c to merge. Note the merge directory
+    master json file. You can place any number of files in the merge directory. Run the utility with -c to merge. Note that the merge directory
     gets deleted during the clean up process so don't put files here unless you are 100% ready to merge.
   - Install Anywhere (Testing):
   
@@ -16,7 +16,7 @@ This utillity is a command line utliity with a wide range of functionality. Whil
   - Advanced Search (In Development):
   
       There are several passable arguments that allow for advanced filtering (see syntax guide below) from very broad to very narrow searches. I also plan to impelment nested commands to allow for even better filtering/searching. 
-        i.e. -aa "something" -ao "a,b" would return any task with the word something and the word a or b which. 
+        i.e. -aa "something" -ao "a,b" would return any task with the word "something" and the word "a" or "b". 
   - Custom Status and Tags (In Development):
   
       Most TODO applications lock the status to a limited set of options. This utility has been designed to allow for free form statuses and 
