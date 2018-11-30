@@ -72,7 +72,7 @@ def createJSONFromTODO():
                 if("#" in line and status_flag == 0):
                     status_flag = 1
                     status = line.split(":")[0].split("#")[1].replace("\n", "")
-                    current_task.append(f'"status": "{status}"')
+                    current_task.append(f'"status": "{status}",')
                     continue
 
                 # find description start (metadata will mark the end I guess)
@@ -100,6 +100,7 @@ def createJSONFromTODO():
                     current_task.append(f'{metadata[1]},')
                     current_task.append(f'{metadata[2]},')
                     current_task.append(f'{metadata[3]},')
+                    current_task.append(f'{metadata[4]},')
                     metadata_flag = 3
                     tasks.append(current_task)
                     current_task = []
@@ -120,6 +121,10 @@ def createJSONFromTODO():
             temp = task[5] # should be where id is stored
             date = temp.split("(")[1].split(")")[0]
             task[5] = f'"lastEdited": "{date}",'
+        if("delete" in task[7]):
+            temp = task[7] # should be where id is stored
+            delete_flag = temp.split("(")[1].split(")")[0]
+            task[7] = f'"delete": {delete_flag.lower()}'
         if("categories" in task[1]):
             # get categories from string - Categories=['High Priority', 'test']
             temp = task[1].split("[")[1].split("]")[0]
@@ -144,6 +149,7 @@ def createJSONFromTODO():
         json_text.append(f'\t\t{task[1]}\n') # categories
         json_text.append(f'\t\t{task[3]}\n') # description
         json_text.append(f'\t\t{task[2]}\n') # status
+        json_text.append(f'\t\t{task[7]}\n') # delete flag
         json_text.append('\t},\n')
     json_text.pop() # remove trailing comma
     json_text.append('\t}\n')
@@ -168,7 +174,7 @@ def createTODOFromJSON():
         txt.append(f"\tCategories={task['categories']}\n")
         txt.append(f"\t#{task['status']}\n")
         txt.append(f"\tDescription:\n{task['description']}\n")
-        txt.append(f"\tmetadata: @id({task['id']}) @last_edited({task['lastEdited']}) @task_created({task['created']})")
+        txt.append(f"\tmetadata: @id({task['id']}) @last_edited({task['lastEdited']}) @task_created({task['created']}) @delete({task['delete']})")
         txt.append("\n\n")
 
     logs.append(f"[LOG-VERBOSE]: ({datetime.datetime.now()}) Saving generated TODO to Tasks.otodo")
@@ -225,14 +231,31 @@ def consolidate(index):
         for f in merge_files:
             merge(f"./merge/{f}")
 
-        # Delete merge files afterwards to avoid duplicate merging
-        cleanUp()
     else:
         # convert TODO into JSON
         createJSONFromTODO()
 
         # Finally merge files
         merge("./.ignore/consolidate.json")
+
+    # load master file
+    with open("./.ignore/master_list.json", "r") as file:
+        MASTER = json.load(file)
+
+    # Delete any tasks in MASTER that have the deleted flag set to true
+    delete_flag = 0
+    for task in MASTER:
+        if(task['delete'] == True):
+            delete_flag = 1
+            print("found delete")
+            MASTER.remove(task)
+
+    # If any tasks are deleted, update MASTER file
+    with open("./.ignore/master_list.json", "w") as file:
+        json.dump(MASTER, file, indent=4)
+
+    # Delete merge files afterwards to avoid duplicate merging
+    cleanUp()
 
 def merge(f):
     # iterate through master_list and find differences
@@ -266,7 +289,7 @@ def merge(f):
                     task['created'] = ctask['created']                     
                     changed = 1
                 if changed == 1:
-                    task['lastEdited'] = datetime.datetime.now()
+                    task['lastEdited'] = ctask['categories']
                 if ctask['categories'] != task['categories']:
                     task['categories'] = ctask['categories'] 
                     changed = 1
@@ -276,6 +299,8 @@ def merge(f):
                 if ctask['status'] != task['status']:
                     task['status'] = ctask['status'] 
                     changed = 1
+                if ctask['delete'] != task['delete']:
+                    task['delete'] = ctask['delete']
                 break
 
     with open('./.ignore/master_list.json', "w") as file:
@@ -329,10 +354,12 @@ def search(index):
                 # search for each word
                 # if a word is not found then found_flag is changed to 0 and the task wont be added.
                 for word in search:
-                    if(word in task['name'] or word in task['created'] or word in task['lastEdited'] or word in task['categories'] or word in task['description'] or word in task['description'] or word in task['status']):
+                    word = word.strip()
+                    if(word in task['name'] or word in task['created'] or word in task['lastEdited'] or word in task['created'] or word in task['lastEdited'] or word in task['categories'] or word in task['description'] or word in task['description'] or word in task['status']):
                        continue
                     else:
                         found_flag = 0
+                        logs.append(f"[LOG-VERBOSE] {datetime.datetime.now()} Word {word} not found in task. {task['name']}")
                         break
                 if(found_flag == 1):
                     logs.append(f"[LOG-VERBOSE]: ({datetime.datetime.now()}) Found matching task")
@@ -342,16 +369,19 @@ def search(index):
             # -ao has 1 required value and 0 optional values
             search = command[1].split(",")
             # Iterate over MASTER and check each piece for any of the given strings
+            count = 0
             for task in MASTER:
                 # search for each word
-                # if a word is not found then found_flag is changed to 0 and the task wont be added.
                 for word in search:
-                    if(word in task['name'] or word in task['created'] or word in task['lastEdited'] or word in task['categories'] or word in task['description'] or word in task['description'] or word in task['status']):
+                    count += 1
+                    word = word.strip()
+                    if(word in task['name'] or word in task['created'] or word in task['lastEdited'] or word in task['categories'] or word in task['description'] or word in task['status']):
                         logs.append(f"[LOG-VERBOSE]: ({datetime.datetime.now()}) Found matching task")
                         DISPLAY.append(task)
                         break
-                    else:
-                        break
+            print(count)
+
+    print(DISPLAY)
 
     # Don't do anything else if no results were found
     if(len(DISPLAY) == 0):
@@ -391,11 +421,14 @@ def cleanUp():
     merge_path = './merge/'
     if os.path.isfile(display_path):
         os.remove(display_path)
-    if os.path.isfile(consolidate_path):
-        os.remove(consolidate_path)
+    #if os.path.isfile(consolidate_path):
+     #   os.remove(consolidate_path)
     
     # Delete merge directory
-    shutil.rmtree(merge_path)
+    try:    
+        shutil.rmtree(merge_path)
+    except:
+        print("")
 
 def runCommand(arg, index):
     if(arg == '-s'):

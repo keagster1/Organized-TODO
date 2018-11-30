@@ -1,0 +1,15 @@
+
+Problems:
+    - If two utilities were running at the same time or if two users where trying to access the master_list.json file at the same time it would most likely result in an error. 
+
+Solutions:
+    - make a copy of master_list and then have a master program that merges copied lists?
+        Problem => is that there still could be an issue with two people accessing the list at the same time. All this does is lower the chance. 
+        This also means that I would have the develop another command utility souley for merging master files.
+
+        How do I make it so that the orginal file never locks up?
+            Ideally users wouldn't even touch this at all. 
+        
+        I actually don't think there is a problem because this utility will be run one time for each user i.e. it will be installed locally.
+    - research this problem and see what the internet thinks
+    - Go the database route which can easily handle large amounts of traffic. 

@@ -1,17 +1,5 @@
 [
     {
-        "id": 0,
-        "name": "Add rest of functionality",
-        "created": "2018-11-28T01:01:01",
-        "lastEdited": "2018-11-28T01:01:01",
-        "categories": [
-            "High Priority",
-            "test"
-        ],
-        "description": "        Now that I have some core functionality working it is time to implement the rest of the commands.\n        Implement creating new tasks so thsildufpudrfgepurgweprogrgwepuorgwepiugwepri\n            if the id == new, then it will generate an id and insert the task.\n            @id(new) -> will create a new task\n",
-        "status": "In Progress"
-    },
-    {
         "id": 1,
         "name": "test2",
         "created": "2018-11-28T01:01:01",
@@ -21,42 +9,19 @@
             "test"
         ],
         "description": "\t\tThis is a test task.\n\t\t More testing!!!\nwhat happens now? oh it seems to work actually! \" n \"\"\n",
-        "status": "Completed"
+        "status": "Completed",
+        "delete": false
     },
     {
-        "id": 49922,
-        "name": "create_me",
-        "created": "2018-11-29 13:32:02.391875",
-        "lastEdited": "2018-11-29 13:32:02.391875",
+        "id": 96748,
+        "name": "test2",
+        "created": "2018-11-29 18:25:20.695377",
+        "lastEdited": "2018-11-29 18:25:20.695377",
         "categories": [
-            "Low Priority",
-            "test"
+            "TBD"
         ],
-        "description": "\t\tNew task asdas d\n",
-        "status": "Created"
-    },
-    {
-        "id": 60489,
-        "name": "Merger",
-        "created": "2018-11-29 14:11:18.210465",
-        "lastEdited": "2018-11-29 14:11:18.210465",
-        "categories": [
-            "High Priority",
-            "test"
-        ],
-        "description": "Test merger",
-        "status": "In Progress"
-    },
-    {
-        "id": 93070,
-        "name": "Merger2",
-        "created": "2018-11-29 14:11:54.473408",
-        "lastEdited": "2018-11-29 14:11:54.473408",
-        "categories": [
-            "High Priority",
-            "test"
-        ],
-        "description": "Test merger",
-        "status": "In Progress"
+        "description": "\t\tThis is a new task\n",
+        "status": "Created",
+        "delete": false
     }
 ]
