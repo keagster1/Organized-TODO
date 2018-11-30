@@ -3,13 +3,12 @@ Organized-TODO is a python utility that allows users to manage a TODO list where
 
 This utillity is a command line utliity with a wide range of functionality. While I am still in the early phases of development I already have core functionality working (see feature list below).
 
---
 
 ## Features
   - Merge Multiple JSON Files (Done):
   
     Any JSON file that follows the proper format (see JSON format section below) that is placed in the merge folder will be merged into the 
-    master json file. You can place any number of files in the merge directory. Run the utility with -c to merge. Note the merge directory
+    master json file. You can place any number of files in the merge directory. Run the utility with -c to merge. Note that the merge directory
     gets deleted during the clean up process so don't put files here unless you are 100% ready to merge.
   - Install Anywhere (Testing):
   
@@ -17,7 +16,7 @@ This utillity is a command line utliity with a wide range of functionality. Whil
   - Advanced Search (In Development):
   
       There are several passable arguments that allow for advanced filtering (see syntax guide below) from very broad to very narrow searches. I also plan to impelment nested commands to allow for even better filtering/searching. 
-        i.e. -aa "something" -ao "a,b" would return any task with the word something and the word a or b which. 
+        i.e. -aa "something" -ao "a,b" would return any task with the word "something" and the word "a" or "b". 
   - Custom Status and Tags (In Development):
   
       Most TODO applications lock the status to a limited set of options. This utility has been designed to allow for free form statuses and 
@@ -46,6 +45,7 @@ Schema:
   - categories (string array)
   - description (string)
   - status (string)
+  - delete (boolean)
 
 Example:
 ```JSON
@@ -135,7 +135,7 @@ Search Commands
 ---
 ### -aa "string"
 > All AND
->  - Search all tasks in every field (except id) for the passed value(s). The string can be comma delimited to search for 
+>  - Search all tasks in every field (except id) for all of the passed value(s). The string can be comma delimited to search for 
 >  multiple values. All supplied values must be found in order to be returned. 
 >  - Example:
 >    -s -aa "some, string"
