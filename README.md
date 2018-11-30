@@ -45,6 +45,7 @@ Schema:
   - categories (string array)
   - description (string)
   - status (string)
+  - delete (boolean)
 
 Example:
 ```JSON
@@ -134,7 +135,7 @@ Search Commands
 ---
 ### -aa "string"
 > All AND
->  - Search all tasks in every field (except id) for the passed value(s). The string can be comma delimited to search for 
+>  - Search all tasks in every field (except id) for all of the passed value(s). The string can be comma delimited to search for 
 >  multiple values. All supplied values must be found in order to be returned. 
 >  - Example:
 >    -s -aa "some, string"
