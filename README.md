@@ -73,7 +73,7 @@ Example:
         "description": "This is another example task",
         "status": "Created",
         "delete": false
-    },
+    }
 ]
 ```
 
@@ -92,8 +92,7 @@ In order to create a new task, simply enter a task that has the <strong>id</stro
         "description": "This is an example of a new task",
         "status": "Created",
         "delete": false
-    },
-    ...
+    }
 ]
 ```
 
@@ -114,7 +113,7 @@ Example:
         "description": "This is an example of a new task",
         "status": "Created",
         "delete": true
-    },
-    ...
+    }
+    
 ]
 ```
