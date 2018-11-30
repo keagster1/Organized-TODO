@@ -1,9 +1,9 @@
 Features:
     - search
-        -aa (working) # all AND
-        -ao (working) # all OR
-        -na # name AND
-        -no # name OR
+        ✔ -aa (working) # all AND @done(18-11-30 12:40)
+        ✔ -ao (working) # all OR @done(18-11-30 12:40)
+        ✔ -na # name AND @done(18-11-30 12:40)
+        ✔ -no # name OR @done(18-11-30 12:40)
 
         -cda # created after datetime
         -cde # created equal to datetime
@@ -12,16 +12,16 @@ Features:
         -lede # lasted edited equal to datetime
         -ledb # lasted edited before datetime
 
-        -ca # category AND
-        -co # category OR
-        -da # description AND
-        -do # description OR
-        -sa # status AND
-        -so # status OR
-        -ta # tags AND
-        -to # tags OR
+        ☐ -ca # category AND
+        ☐ -co # category OR
+        ☐ -da # description AND
+        ☐ -do # description OR
+        ☐ -sa # status AND
+        ☐ -so # status OR
+        ☐ -ta # tags AND
+        ☐ -to # tags OR
         
     - CRUD
-        -Create new task (working)
-        -Delete task (working)
-        -Edit task (working)
+        ✔ -Create new task (working) @done(18-11-30 12:41)
+        ✔ -Delete task (working) @done(18-11-30 12:41)
+        ✔ -Edit task (working) @done(18-11-30 12:41)

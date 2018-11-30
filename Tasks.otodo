@@ -6,7 +6,7 @@ test2:
 		 More testing!!!
 what happens now? oh it seems to work actually! " n ""wekl;fjgt asd asd asd asd
 
-	metadata: @id(1) @last_edited(2018-11-28T01:01:01) @task_created(2018-11-28T01:01:01) @delete(False)
+	metadata: @id(1) @last_edited(2018-11-30T11:18:47.514780) @task_created(2018-11-28T01:01:01) @delete(False)
 
 test3:
 	Categories=['Low Priority', 'test']
@@ -17,4 +17,14 @@ test3:
 	what happens now? oh it seems to work actually! " n ""
 
 	metadata: @id(68101) @last_edited(2018-11-30T10:55:00.330160) @task_created(2018-11-30T10:55:00.330160) @delete(False)
+
+something:
+	Categories=['Low Priority', 'find']
+	#Completed
+	Description:
+			This is a test task.
+				More testing!!!
+	what happens now? oh it seems to work actually! " n ""
+
+	metadata: @id(0) @last_edited(2018-11-30T12:50:35.613709) @task_created(2018-11-30T12:27:04.081455) @delete(False)
 
