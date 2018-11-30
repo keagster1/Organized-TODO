@@ -3,7 +3,6 @@ Organized-TODO is a python utility that allows users to manage a TODO list where
 
 This utillity is a command line utliity with a wide range of functionality. While I am still in the early phases of development I already have core functionality working (see feature list below).
 
---
 
 ## Features
   - Merge Multiple JSON Files (Done):
