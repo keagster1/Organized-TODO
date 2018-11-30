@@ -6,7 +6,7 @@ This utillity is a command line utliity with a wide range of functionality. Whil
 --
 
 ## Features
-  - Merge Multiple JSON Files (Testing):
+  - Merge Multiple JSON Files (Done):
   
     Any JSON file that follows the proper format (see JSON format section below) that is placed in the merge folder will be merged into the 
     master json file. You can place any number of files in the merge directory. Run the utility with -c to merge. Note the merge directory
@@ -97,7 +97,7 @@ In order to create a new task, simply enter a task that has the <strong>id</stro
 ```
 
 ### Deleting Tasks
-Deleting tasks is as easy as setting the delete flag to true. The next time you consolidate the utility will automatically delete if for you. Note that currently the data is instantly deleted with no backup systems implemented. Therefor make sure you only delete things that you actually want to delete. In the future I will create some sort of backup system
+Deleting tasks is as easy as setting the delete flag to true. The next time you consolidate, the utility will automatically delete it for you. Note that currently the data is instantly deleted with no backup systems implemented. Therefor make sure you only delete things that you actually want to delete. In the future I will create some sort of backup system.
 
 Example:
 ```JSON
@@ -116,4 +116,14 @@ Example:
     }
     
 ]
+```
+
+# Command Line Syntax
+Search Commands
+---
+```
+-aa <string>
+  "All AND" Search all tasks in every field (except id) for the passed value(s). The string can be comma delimited to search for multiple values. All supplied values must be found in order to be returned. 
+  Example:
+    -s -aa "some, string"
 ```
