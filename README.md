@@ -123,21 +123,25 @@ Admin Commands
 ---
 
 ### -c
-> - "consolidate" This has two paths of execution. If merge files are provided it will merge those. If no merge files are provided then
+> Consolidate 
+> - This has two paths of execution. If merge files are provided it will merge those. If no merge files are provided then
 >   an assumption is made that the user is using the generated Tasks.otodo file and will attempt to merge that instead.
 
 ### -cu
-> - "Clean Up" This is run automatically to clean up generated files. Can also be called seperatly. 
+> Clean Up
+> -  This is run automatically to clean up generated files. Can also be called seperatly. 
 
 Search Commands
 ---
 ### -aa "string"
->  - "All AND" Search all tasks in every field (except id) for the passed value(s). The string can be comma delimited to search for 
+> "All AND"
+>  - Search all tasks in every field (except id) for the passed value(s). The string can be comma delimited to search for 
 >  multiple values. All supplied values must be found in order to be returned. 
 >  - Example:
 >    -s -aa "some, string"
 ### -ao "string"
->  - "All OR" Search all tasks in every field (except id) for any of the passed value(s). The string can be comma delimited to search 
+> "All OR"
+>  - Search all tasks in every field (except id) for any of the passed value(s). The string can be comma delimited to search 
 >    for multiple values. Only one of the supplied values must be found in order to be returned. 
 >  - Example:
 >    -s -ao "some, string"
