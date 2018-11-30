@@ -121,9 +121,10 @@ Example:
 # Command Line Syntax
 Search Commands
 ---
-```
--aa <string>
-  "All AND" Search all tasks in every field (except id) for the passed value(s). The string can be comma delimited to search for multiple values. All supplied values must be found in order to be returned. 
-  Example:
-    -s -aa "some, string"
-```
+
+>-aa <string>
+>  "All AND" Search all tasks in every field (except id) for the passed value(s). The string can be comma delimited to search for 
+>  multiple values. All supplied values must be found in order to be returned. 
+>  Example:
+>    -s -aa "some, string"
+
