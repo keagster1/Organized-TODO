@@ -374,7 +374,155 @@ def search(index):
                 for word in search:
                     count += 1
                     word = word.strip()
-                    if(word in task['name'] or word in task['created'] or word in task['lastEdited'] or word in task['categories'] or word in task['description'] or word in task['status']):
+                    if(word in task['name'].strip() or word in task['created'].strip() or word in task['lastEdited'].strip() or word in task['categories'].strip() or word in task['description'].strip() or word in task['status'].strip()):
+                        logs.append(f"[LOG-VERBOSE]: ({datetime.datetime.now()}) Found matching task")
+                        DISPLAY.append(task)
+                        break
+        elif(command[0] == '-na'): # Search only name for all passed values
+            logs.append(f'[LOG-VERBOSE]: ({datetime.datetime.now()}) Searching task names for passed values with AND logic.')
+            search = command[1].split(",")
+            count = 0
+            found_flag = 1
+            for task in MASTER:
+                # search for each word
+                # if a word is not found then found_flag is changed to 0 and the task wont be added.
+                found_flag = 1
+                for word in search:
+                    word = word.strip()
+                    if(word in task['name'].strip()):
+                        logs.append(f"[LOG-VERBOSE] {datetime.datetime.now()} Word {word} found in task. {task['name']}")
+                        continue
+                    else:
+                        found_flag = 0
+                        logs.append(f"[LOG-VERBOSE] {datetime.datetime.now()} Word {word} not found in task. {task['name']}")
+                        break
+                if(found_flag == 1):
+                    logs.append(f"[LOG-VERBOSE]: ({datetime.datetime.now()}) Found matching task")
+                    found_flag = 1
+                    DISPLAY.append(task)
+        elif(command[0] == '-no'): # Search only name of tasks for any of the passed values. 
+            logs.append(f"[LOG-VERBOSE]: ({datetime.datetime.now()}) Searching names of task with OR logic")
+            # -ao has 1 required value and 0 optional values
+            search = command[1].split(",")
+            # Iterate over MASTER and check each piece for any of the given strings
+            count = 0
+            for task in MASTER:
+                # search for each word
+                for word in search:
+                    count += 1
+                    word = word.strip()
+                    if(word in task['name'].strip()):
+                        logs.append(f"[LOG-VERBOSE]: ({datetime.datetime.now()}) Found matching task")
+                        DISPLAY.append(task)
+                        break
+        elif(command[0] == '-ca'): # Search only categories for all passed values
+            logs.append(f'[LOG-VERBOSE]: ({datetime.datetime.now()}) Searching task names for passed values with AND logic.')
+            search = command[1].split(",")
+            count = 0
+            found_flag = 1
+            for task in MASTER:
+                # search for each word
+                # if a word is not found then found_flag is changed to 0 and the task wont be added.
+                found_flag = 1
+                for word in search:
+                    word = word.strip()
+                    if(word in task['categories'].strip()):
+                        logs.append(f"[LOG-VERBOSE] {datetime.datetime.now()} Word {word} found in task. {task['name']}")
+                        continue
+                    else:
+                        found_flag = 0
+                        logs.append(f"[LOG-VERBOSE] {datetime.datetime.now()} Word {word} not found in task. {task['name']}")
+                        break
+                if(found_flag == 1):
+                    logs.append(f"[LOG-VERBOSE]: ({datetime.datetime.now()}) Found matching task")
+                    found_flag = 1
+                    DISPLAY.append(task)
+        elif(command[0] == '-co'): # Search only categories for all passed values
+            logs.append(f"[LOG-VERBOSE]: ({datetime.datetime.now()}) Searching names of task with OR logic")
+            # -ao has 1 required value and 0 optional values
+            search = command[1].split(",")
+            # Iterate over MASTER and check each piece for any of the given strings
+            count = 0
+            for task in MASTER:
+                # search for each word
+                for word in search:
+                    count += 1
+                    word = word.strip()
+                    if(word in task['categories'].strip()):
+                        logs.append(f"[LOG-VERBOSE]: ({datetime.datetime.now()}) Found matching task")
+                        DISPLAY.append(task)
+                        break
+        elif(command[0] == '-da'): # Search only description for all passed values
+            logs.append(f'[LOG-VERBOSE]: ({datetime.datetime.now()}) Searching task names for passed values with AND logic.')
+            search = command[1].split(",")
+            count = 0
+            found_flag = 1
+            for task in MASTER:
+                # search for each word
+                # if a word is not found then found_flag is changed to 0 and the task wont be added.
+                found_flag = 1
+                for word in search:
+                    word = word.strip()
+                    if(word in task['description'].strip()):
+                        logs.append(f"[LOG-VERBOSE] {datetime.datetime.now()} Word {word} found in task. {task['name']}")
+                        continue
+                    else:
+                        found_flag = 0
+                        logs.append(f"[LOG-VERBOSE] {datetime.datetime.now()} Word {word} not found in task. {task['name']}")
+                        break
+                if(found_flag == 1):
+                    logs.append(f"[LOG-VERBOSE]: ({datetime.datetime.now()}) Found matching task")
+                    found_flag = 1
+                    DISPLAY.append(task)
+        elif(command[0] == '-do'): # Search only description for all passed values
+            logs.append(f"[LOG-VERBOSE]: ({datetime.datetime.now()}) Searching names of task with OR logic")
+            # -ao has 1 required value and 0 optional values
+            search = command[1].split(",")
+            # Iterate over MASTER and check each piece for any of the given strings
+            count = 0
+            for task in MASTER:
+                # search for each word
+                for word in search:
+                    count += 1
+                    word = word.strip()
+                    if(word in task['description'].strip()):
+                        logs.append(f"[LOG-VERBOSE]: ({datetime.datetime.now()}) Found matching task")
+                        DISPLAY.append(task)
+                        break
+        elif(command[0] == '-sa'): # Search only status for all passed values
+            logs.append(f'[LOG-VERBOSE]: ({datetime.datetime.now()}) Searching task names for passed values with AND logic.')
+            search = command[1].split(",")
+            count = 0
+            found_flag = 1
+            for task in MASTER:
+                # search for each word
+                # if a word is not found then found_flag is changed to 0 and the task wont be added.
+                found_flag = 1
+                for word in search:
+                    word = word.strip()
+                    if(word in task['status'].strip()):
+                        logs.append(f"[LOG-VERBOSE] {datetime.datetime.now()} Word {word} found in task. {task['name']}")
+                        continue
+                    else:
+                        found_flag = 0
+                        logs.append(f"[LOG-VERBOSE] {datetime.datetime.now()} Word {word} not found in task. {task['name']}")
+                        break
+                if(found_flag == 1):
+                    logs.append(f"[LOG-VERBOSE]: ({datetime.datetime.now()}) Found matching task")
+                    found_flag = 1
+                    DISPLAY.append(task)
+        elif(command[0] == '-so'): # Search only status for all passed values
+            logs.append(f"[LOG-VERBOSE]: ({datetime.datetime.now()}) Searching names of task with OR logic")
+            # -ao has 1 required value and 0 optional values
+            search = command[1].split(",")
+            # Iterate over MASTER and check each piece for any of the given strings
+            count = 0
+            for task in MASTER:
+                # search for each word
+                for word in search:
+                    count += 1
+                    word = word.strip()
+                    if(word in task['status'].strip()):
                         logs.append(f"[LOG-VERBOSE]: ({datetime.datetime.now()}) Found matching task")
                         DISPLAY.append(task)
                         break
